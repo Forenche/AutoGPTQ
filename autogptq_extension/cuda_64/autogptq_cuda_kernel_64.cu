@@ -268,7 +268,7 @@ void vecquant2matmul_cuda(
   dim3 threads(BLOCKWIDTH);
 
   AT_DISPATCH_FLOATING_TYPES(
-    vec.type(), "vecquant2matmul_cuda", ([&] {
+    vec.scalar_type(), "vecquant2matmul_cuda", ([&] {
       VecQuant2MatMulKernel<<<blocks, threads>>>(
         vec.data<scalar_t>(), mat.data<int>(), mul.data<scalar_t>(),
         scales.data<scalar_t>(), zeros.data<int>(), g_idx.data<int>(), 
@@ -357,7 +357,7 @@ void vecquant3matmul_cuda(
   dim3 threads(BLOCKWIDTH);
 
   AT_DISPATCH_FLOATING_TYPES(
-    vec.type(), "vecquant3matmul_cuda", ([&] {
+    vec.scalar_type(), "vecquant3matmul_cuda", ([&] {
       VecQuant3MatMulKernel<<<blocks, threads>>>(
         vec.data<scalar_t>(), mat.data<int>(), mul.data<scalar_t>(),
         scales.data<scalar_t>(), zeros.data<int>(), g_idx.data<int>(), 
@@ -502,7 +502,7 @@ void vecquant4matmul_cuda(
   dim3 threads(BLOCKWIDTH);
 
   AT_DISPATCH_FLOATING_TYPES(
-    vec.type(), "vecquant4matmul_cuda", ([&] {
+    vec.scalar_type(), "vecquant4matmul_cuda", ([&] {
       VecQuant4MatMulKernel<<<blocks, threads>>>(
         vec.data<scalar_t>(), mat.data<int>(), mul.data<scalar_t>(),
         scales.data<scalar_t>(), zeros.data<int>(), g_idx.data<int>(), 
@@ -590,7 +590,7 @@ void vecquant8matmul_cuda(
   dim3 threads(BLOCKWIDTH);
 
   AT_DISPATCH_FLOATING_TYPES(
-    vec.type(), "vecquant8matmul_cuda", ([&] {
+    vec.scalar_type(), "vecquant8matmul_cuda", ([&] {
       VecQuant8MatMulKernel<<<blocks, threads>>>(
         vec.data<scalar_t>(), mat.data<int>(), mul.data<scalar_t>(),
         scales.data<scalar_t>(), zeros.data<int>(), g_idx.data<int>(), 
@@ -679,7 +679,7 @@ void vecquant2matmul_cuda_old(
   dim3 threads(BLOCKWIDTH);
 
   AT_DISPATCH_FLOATING_TYPES(
-    vec.type(), "vecquant2matmul_cuda_old", ([&] {
+    vec.scalar_type(), "vecquant2matmul_cuda_old", ([&] {
       VecQuant2MatMulKernel_old<<<blocks, threads>>>(
         vec.data<scalar_t>(), mat.data<int>(), mul.data<scalar_t>(),
         scales.data<scalar_t>(), zeros.data<int>(),
@@ -774,7 +774,7 @@ void vecquant3matmul_cuda_old(
   dim3 threads(BLOCKWIDTH);
 
   AT_DISPATCH_FLOATING_TYPES(
-    vec.type(), "vecquant3matmul_cuda_old", ([&] {
+    vec.scalar_type(), "vecquant3matmul_cuda_old", ([&] {
       VecQuant3MatMulKernel_old<<<blocks, threads>>>(
         vec.data<scalar_t>(), mat.data<int>(), mul.data<scalar_t>(),
         scales.data<scalar_t>(), zeros.data<int>(),
@@ -933,7 +933,7 @@ void vecquant4matmul_cuda_old(
   dim3 threads(BLOCKWIDTH);
 
   AT_DISPATCH_FLOATING_TYPES(
-    vec.type(), "vecquant4matmul_cuda_old", ([&] {
+    vec.scalar_type(), "vecquant4matmul_cuda_old", ([&] {
       VecQuant4MatMulKernel_old<<<blocks, threads>>>(
         vec.data<scalar_t>(), mat.data<int>(), mul.data<scalar_t>(),
         scales.data<scalar_t>(), zeros.data<int>(),
@@ -1020,7 +1020,7 @@ void vecquant8matmul_cuda_old(
   dim3 threads(BLOCKWIDTH);
 
   AT_DISPATCH_FLOATING_TYPES(
-    vec.type(), "vecquant8matmul_cuda_old", ([&] {
+    vec.scalar_type(), "vecquant8matmul_cuda_old", ([&] {
       VecQuant8MatMulKernel_old<<<blocks, threads>>>(
         vec.data<scalar_t>(), mat.data<int>(), mul.data<scalar_t>(),
         scales.data<scalar_t>(), zeros.data<int>(),
